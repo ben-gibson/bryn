@@ -1,0 +1,7 @@
+build
+docs
+vendor
+.DS_STORE
+.idea
+src/example.php
+.vagrant
