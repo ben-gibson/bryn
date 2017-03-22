@@ -1,0 +1,41 @@
+{
+  "name": "ben-gibson/bryn",
+  "description": "A PHP library for calculating monetary conversions. This repository contains the interfaces and domain models only.",
+  "keywords": [
+    "currency",
+    "conversion",
+    "exchange",
+    "rate"
+  ],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "homepage": "https://github.com/ben-gibson/bryn",
+  "authors": [
+    {
+      "name": "Ben Gibson",
+      "email": "ben.gibson.2011@gmail.com",
+      "homepage": "https://ben-gibson.co.uk"
+    }
+  ],
+  "require": {
+    "php": "~7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "~6.0",
+    "squizlabs/php_codesniffer": "~2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gibbo\\Bryn\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gibbo\\Bryn\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "format": "phpcbf --standard=psr2 src/"
+  }
+}

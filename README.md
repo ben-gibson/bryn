@@ -1,24 +1,25 @@
-# Currency Conversion
+# Bryn
 
 [![Software License][ico-license]](LICENSE.md)
 
-A `PHP` library for calculating monetary conversions. This repository contains the interfaces and core models.
+A `PHP` library for calculating monetary conversions. This repository contains the interfaces and domain models only.
 
 ## Install
 
 Use composer to install this library.
 
 ``` bash
-$ composer require ben-gibson/currency-conversion
+$ composer require ben-gibson/bryn
 ```
 
 ## Usage
 
-``` php
-<?php
+An exchange rate calculator implementation needs to be installed alongside this library.
 
-require_once __DIR__.'/../vendor/autoload.php';
-```
+| Source        | Link           |  
+| ------------- |:-------------:|   
+| The European Central Bank | https://github.com/ben-gibson/bryn-european-central-bank-calculator |
+
 
 ## Change log
 
