@@ -1,6 +1,7 @@
 # Bryn
 
 [![Software License][ico-license]](LICENSE.md)
+[![Build Status](https://travis-ci.org/ben-gibson/bryn.svg?branch=master)](https://travis-ci.org/ben-gibson/bryn)
 
 A `PHP` library for calculating monetary conversions. This repository contains the interfaces and domain models only.
 
