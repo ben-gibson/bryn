@@ -48,4 +48,14 @@ class Exchange
     {
         return $this->counter;
     }
+
+    /**
+     * Flip the exchange.
+     *
+     * @return static
+     */
+    public function flip()
+    {
+        return new static($this->getCounter(), $this->getBase());
+    }
 }

@@ -49,4 +49,16 @@ class ExchangeTest extends TestCase
 
         $this->assertSame($counter, $exchange->getCounter());
     }
+
+    /**
+     * Can be flipped
+     *
+     * @return void
+     */
+    public function testCanBeFlipped()
+    {
+        $exchange = new Exchange(Currency::GBP(), Currency::USD());
+
+        $this->assertEquals(new Exchange(Currency::USD(), Currency::GBP()), $exchange->flip());
+    }
 }

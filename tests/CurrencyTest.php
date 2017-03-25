@@ -44,4 +44,14 @@ class CurrencyTest extends TestCase
 
         $this->assertSame('£', $currency->getSymbol());
     }
+
+    /**
+     * Does identify itself correctly.
+     *
+     * @return void
+     */
+    public function testIsEuro()
+    {
+        $this->assertTrue(Currency::Euro()->isEuro());
+    }
 }

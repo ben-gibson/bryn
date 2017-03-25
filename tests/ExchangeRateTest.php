@@ -23,7 +23,6 @@ class ExchangeRateTest extends TestCase
         $this->assertInstanceOf(ExchangeRate::class, new ExchangeRate(new Exchange(Currency::GBP(), Currency::USD()), 1.2));
     }
 
-
     /**
      * Can be converted.
      *
@@ -39,7 +38,6 @@ class ExchangeRateTest extends TestCase
     {
         $this->assertSame($expectedValue, $exchangeRate->convert($amount));
     }
-
 
     /**
      * Provides conversion values.
@@ -62,7 +60,6 @@ class ExchangeRateTest extends TestCase
         ];
     }
 
-
     /**
      * Can be cast to a string.
      *
@@ -73,5 +70,17 @@ class ExchangeRateTest extends TestCase
         $exchangeRate = new ExchangeRate(new Exchange(Currency::GBP(), Currency::USD()), 1.25);
 
         $this->assertSame('1 GBP(£) = 1.25 USD($)', $exchangeRate->__toString());
+    }
+
+    /**
+     * Can be flipped
+     *
+     * @return void
+     */
+    public function testCanBeFlipped()
+    {
+        $exchangeRate = new ExchangeRate(new Exchange(Currency::GBP(), Currency::USD()), 1.25);
+
+        $this->assertEquals(new ExchangeRate(new Exchange(Currency::USD(), Currency::GBP()), 0.8), $exchangeRate->flip());
     }
 }

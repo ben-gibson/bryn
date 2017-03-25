@@ -50,6 +50,26 @@ class Currency
     }
 
     /**
+     * Euro
+     *
+     * @return static
+     */
+    public static function Euro()
+    {
+        return new static('EUR', '€');
+    }
+
+    /**
+     * Does this represent the euro?
+     *
+     * @return bool
+     */
+    public function isEuro(): bool
+    {
+        return $this->code === 'EUR';
+    }
+
+    /**
      * Get the currency symbol.
      *
      * @return string

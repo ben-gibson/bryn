@@ -37,16 +37,25 @@ class ExchangeRate
      *
      * @return float
      */
-    public function convert(float $amount)
+    public function convert(float $amount): float
     {
         return $this->value * $amount;
     }
 
+    /**
+     * Flips the exchange rate.
+     *
+     * @return static
+     */
+    public function flip()
+    {
+        return new static($this->exchange->flip(), 1 / $this->value);
+    }
 
     /**
      * @inheritdoc
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf(
             '1 %s(%s) = %.02f %s(%s)',
