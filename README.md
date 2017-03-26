@@ -20,7 +20,7 @@ An exchange rate calculator implementation needs to be installed alongside this 
 | Source        | Link           |  
 | ------------- |:-------------:|   
 | The European Central Bank | https://github.com/ben-gibson/bryn-european-central-bank-calculator |
-
+| Yahoo's YQL Finance API | https://github.com/ben-gibson/bryn-yahoo-calculator |
 
 ## Change log
 
