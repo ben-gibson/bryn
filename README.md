@@ -3,7 +3,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.org/ben-gibson/bryn.svg?branch=master)](https://travis-ci.org/ben-gibson/bryn)
 
-A `PHP` library for calculating monetary conversions. This repository contains the interfaces and domain models only.
+A `PHP` library acting as an abstraction layer for calculating monetary conversions. This repository contains the interfaces and domain models only.
 
 ## Install
 
@@ -15,13 +15,18 @@ $ composer require ben-gibson/bryn
 
 ## Usage
 
-An exchange rate calculator implementation needs to be installed alongside this library.
+An exchange rate calculator needs to be installed alongside this library like the ones below.
 
 | Source        | Link           |  
 | ------------- |:-------------:|   
 | The European Central Bank | https://github.com/ben-gibson/bryn-european-central-bank-calculator |
 | Yahoo's YQL Finance API | https://github.com/ben-gibson/bryn-yahoo-calculator |
-| Fallback | https://github.com/ben-gibson/bryn-fallback-calculator |
+
+To increase reliability the [bryn-fallback-calculator](https://github.com/ben-gibson/bryn-fallback-calculator) can be used by registering multiple calculators in priority order.
+
+## Caching
+
+TODO
 
 ## Change log
 
