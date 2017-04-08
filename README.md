@@ -1,7 +1,10 @@
 # Bryn
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.org/ben-gibson/bryn.svg?branch=master)](https://travis-ci.org/ben-gibson/bryn)
+[![Total Downloads][ico-downloads]][link-downloads]
+
 
 A `PHP` library acting as an abstraction layer for calculating monetary conversions. This repository contains the interfaces and domain models only.
 
@@ -55,6 +58,10 @@ If you discover any security related issues, please email ben.gibson.2011@gmail.
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
+[ico-version]: https://img.shields.io/packagist/v/ben-gibson/bryn.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ben-gibson/bryn.svg?style=flat-square
+[link-packagist]: https://packagist.org/packages/ben-gibson/bryn
+[link-downloads]: https://packagist.org/packages/ben-gibson/bryn
 [ico-license]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [link-author]: https://github.com/ben-gibson
 [link-contributors]: ../../contributors
