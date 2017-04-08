@@ -22,10 +22,16 @@ class Currency
      *
      * @param string $code
      * @param string $symbol
+     *
+     * @throws BrynException Invalid currency code.
      */
     public function __construct(string $code, string $symbol)
     {
-        $this->code   = $code;
+        if (mb_strlen($code) !== 3) {
+            throw new BrynException(sprintf("Invalid currency code '%s', must be 3 characters long", $code));
+        }
+
+        $this->code   = mb_strtoupper($code);
         $this->symbol = $symbol;
     }
 
@@ -360,6 +366,18 @@ class Currency
     }
 
     /**
+     * Does this currency have the given code.
+     *
+     * @param string $code
+     *
+     * @return bool
+     */
+    public function hasCode(string $code): bool
+    {
+        return ($this->code === mb_strtoupper($code));
+    }
+
+    /**
      * Get the currency symbol.
      *
      * @return string
@@ -372,8 +390,74 @@ class Currency
     /**
      * @inheritdoc
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->code;
+    }
+
+    /**
+     * Get a currency from its code.
+     *
+     * @param string $code
+     *
+     * @throws BrynException Throw when a currency cannot be found from the given code.
+     *
+     * @return Currency
+     */
+    public static function code(string $code): Currency
+    {
+        $currencies = static::getAll();
+
+        foreach ($currencies as $currency) {
+
+            if ($currency->hasCode($code)) {
+                return $currency;
+            }
+        }
+
+        throw new BrynException(sprintf("Cannot find currency using code '%s'", $code));
+    }
+
+    /**
+     * Gets all known currencies.
+     *
+     * @return Currency[]
+     */
+    public static function getAll(): array
+    {
+        return [
+            static::USD(),
+            static::GBP(),
+            static::Euro(),
+            static::AUD(),
+            static::BGN(),
+            static::BRL(),
+            static::CAD(),
+            static::CHF(),
+            static::CNY(),
+            static::CZK(),
+            static::DKK(),
+            static::HKD(),
+            static::HRK(),
+            static::HUF(),
+            static::ZAR(),
+            static::TRY(),
+            static::THB(),
+            static::SGD(),
+            static::SEK(),
+            static::RUB(),
+            static::RON(),
+            static::PLN(),
+            static::PHP(),
+            static::NZD(),
+            static::NOK(),
+            static::MYR(),
+            static::MXN(),
+            static::KRW(),
+            static::JPY(),
+            static::INR(),
+            static::ILS(),
+            static::IDR(),
+        ];
     }
 }
