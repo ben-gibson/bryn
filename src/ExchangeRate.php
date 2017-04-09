@@ -26,7 +26,7 @@ class ExchangeRate
     public function __construct(Exchange $exchange, float $value)
     {
         $this->exchange = $exchange;
-        $this->value    = round($value, 5);;
+        $this->value    = round($value, 5);
     }
 
 
@@ -39,7 +39,7 @@ class ExchangeRate
      */
     public function convert(float $amount): float
     {
-        return $this->value * $amount;
+        return round($this->value * $amount, 2);
     }
 
     /**
