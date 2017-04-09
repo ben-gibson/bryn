@@ -18,14 +18,20 @@ class Currency
     private $symbol;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * Constructor.
      *
      * @param string $code
      * @param string $symbol
+     * @param string $name
      *
      * @throws BrynException Invalid currency code.
      */
-    public function __construct(string $code, string $symbol)
+    public function __construct(string $code, string $symbol, string $name)
     {
         if (mb_strlen($code) !== 3) {
             throw new BrynException(sprintf("Invalid currency code '%s', must be 3 characters long", $code));
@@ -33,6 +39,7 @@ class Currency
 
         $this->code   = mb_strtoupper($code);
         $this->symbol = $symbol;
+        $this->name   = $name;
     }
 
     /**
@@ -42,7 +49,7 @@ class Currency
      */
     public static function GBP()
     {
-        return new static('GBP', '£');
+        return new static('GBP', '£', 'Great British Pound');
     }
 
     /**
@@ -52,7 +59,7 @@ class Currency
      */
     public static function USD()
     {
-        return new static('USD', '$');
+        return new static('USD', '$', 'United States Dollar');
     }
 
     /**
@@ -60,9 +67,9 @@ class Currency
      *
      * @return static
      */
-    public static function Euro()
+    public static function EUR()
     {
-        return new static('EUR', '€');
+        return new static('EUR', '€', 'Euro');
     }
 
     /**
@@ -72,7 +79,7 @@ class Currency
      */
     public static function JPY()
     {
-        return new static('JPY', '¥');
+        return new static('JPY', '¥', 'Japanese Yen');
     }
 
     /**
@@ -82,7 +89,7 @@ class Currency
      */
     public static function BGN()
     {
-        return new static('BGN', 'лв');
+        return new static('BGN', 'лв', 'Bulgarian Lev');
     }
 
     /**
@@ -92,7 +99,7 @@ class Currency
      */
     public static function CZK()
     {
-        return new static('CZK', 'Kč');
+        return new static('CZK', 'Kč', 'Czech Republic Koruna');
     }
 
     /**
@@ -102,7 +109,7 @@ class Currency
      */
     public static function DKK()
     {
-        return new static('DKK', 'kr.');
+        return new static('DKK', 'kr.', 'Danish Krone');
     }
 
     /**
@@ -112,7 +119,7 @@ class Currency
      */
     public static function HUF()
     {
-        return new static('HUF', 'Ft');
+        return new static('HUF', 'Ft', 'Hungarian Forint');
     }
 
     /**
@@ -122,7 +129,7 @@ class Currency
      */
     public static function PLN()
     {
-        return new static('PLN', 'zł');
+        return new static('PLN', 'zł', 'Polish Zloty');
     }
 
     /**
@@ -132,7 +139,7 @@ class Currency
      */
     public static function RON()
     {
-        return new static('RON', 'lei');
+        return new static('RON', 'lei', 'Romanian Leu');
     }
 
     /**
@@ -142,7 +149,7 @@ class Currency
      */
     public static function SEK()
     {
-        return new static('SEK', 'kr');
+        return new static('SEK', 'kr', 'Swedish Krona');
     }
 
     /**
@@ -152,7 +159,7 @@ class Currency
      */
     public static function CHF()
     {
-        return new static('CHF', 'CHF');
+        return new static('CHF', 'CHF', 'Swiss Franc');
     }
 
     /**
@@ -162,7 +169,7 @@ class Currency
      */
     public static function NOK()
     {
-        return new static('NOK', 'kr');
+        return new static('NOK', 'kr', 'Norwegian Krone');
     }
 
     /**
@@ -172,7 +179,7 @@ class Currency
      */
     public static function HRK()
     {
-        return new static('HRK', 'kn');
+        return new static('HRK', 'kn', 'Croatian kuna');
     }
 
     /**
@@ -182,7 +189,7 @@ class Currency
      */
     public static function RUB()
     {
-        return new static('RUB', '₽');
+        return new static('RUB', '₽', 'Russian rouble');
     }
 
     /**
@@ -192,7 +199,7 @@ class Currency
      */
     public static function TRY()
     {
-        return new static('TRY', '₺');
+        return new static('TRY', '₺', 'Turkish lira');
     }
 
     /**
@@ -202,7 +209,7 @@ class Currency
      */
     public static function AUD()
     {
-        return new static('AUD', '$');
+        return new static('AUD', '$', 'Australian dollar');
     }
 
     /**
@@ -212,7 +219,7 @@ class Currency
      */
     public static function BRL()
     {
-        return new static('BRL', 'R$');
+        return new static('BRL', 'R$', 'Brazilian real');
     }
 
     /**
@@ -222,7 +229,7 @@ class Currency
      */
     public static function CAD()
     {
-        return new static('CAD', '$');
+        return new static('CAD', '$', 'Canadian dollar');
     }
 
     /**
@@ -232,7 +239,7 @@ class Currency
      */
     public static function CNY()
     {
-        return new static('CNY', '¥');
+        return new static('CNY', '¥', 'Chinese yuan renminbi');
     }
 
     /**
@@ -242,7 +249,7 @@ class Currency
      */
     public static function HKD()
     {
-        return new static('HKD', 'HK$');
+        return new static('HKD', 'HK$', 'Hong Kong dollar');
     }
 
     /**
@@ -252,7 +259,7 @@ class Currency
      */
     public static function IDR()
     {
-        return new static('IDR', 'Rp');
+        return new static('IDR', 'Rp', 'Indonesian rupiah');
     }
 
     /**
@@ -262,7 +269,7 @@ class Currency
      */
     public static function ILS()
     {
-        return new static('ILS', '₪');
+        return new static('ILS', '₪', 'Israeli shekel');
     }
 
     /**
@@ -272,7 +279,7 @@ class Currency
      */
     public static function INR()
     {
-        return new static('INR', '₹');
+        return new static('INR', '₹', 'Indian rupee');
     }
 
     /**
@@ -282,7 +289,7 @@ class Currency
      */
     public static function KRW()
     {
-        return new static('KRW', '₩');
+        return new static('KRW', '₩', 'South Korean won');
     }
 
     /**
@@ -292,7 +299,7 @@ class Currency
      */
     public static function MXN()
     {
-        return new static('MXN', '$');
+        return new static('MXN', '$', 'Mexican peso');
     }
 
     /**
@@ -302,7 +309,7 @@ class Currency
      */
     public static function MYR()
     {
-        return new static('MYR', 'RM');
+        return new static('MYR', 'RM', 'Malaysian ringgit');
     }
 
     /**
@@ -312,7 +319,7 @@ class Currency
      */
     public static function NZD()
     {
-        return new static('NZD', '$');
+        return new static('NZD', '$', 'New Zealand dollar');
     }
 
     /**
@@ -322,7 +329,7 @@ class Currency
      */
     public static function PHP()
     {
-        return new static('PHP', '₱');
+        return new static('PHP', '₱', 'Philippine peso');
     }
 
     /**
@@ -332,7 +339,7 @@ class Currency
      */
     public static function SGD()
     {
-        return new static('SGD', '$');
+        return new static('SGD', '$', 'Singapore dollar');
     }
 
     /**
@@ -342,7 +349,7 @@ class Currency
      */
     public static function THB()
     {
-        return new static('THB', '฿');
+        return new static('THB', '฿', 'Thai baht');
     }
 
     /**
@@ -352,7 +359,7 @@ class Currency
      */
     public static function ZAR()
     {
-        return new static('ZAR', 'R');
+        return new static('ZAR', 'R', 'South African rand');
     }
 
     /**
@@ -388,11 +395,31 @@ class Currency
     }
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * @inheritdoc
      */
     public function __toString(): string
     {
         return $this->code;
+    }
+
+    /**
+     * Get a verbose string representation of the currency..
+     *
+     * @return string
+     */
+    public function toStringVerbose(): string
+    {
+        return sprintf('%s (%s %s)', $this, $this->getName(), $this->getSymbol());
     }
 
     /**
@@ -428,7 +455,7 @@ class Currency
         return [
             static::USD(),
             static::GBP(),
-            static::Euro(),
+            static::EUR(),
             static::AUD(),
             static::BGN(),
             static::BRL(),

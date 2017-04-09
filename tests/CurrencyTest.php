@@ -34,7 +34,7 @@ class CurrencyTest extends TestCase
      */
     public function testDoesThrowOnInvalidCode(string $code)
     {
-        new Currency($code, '£');
+        new Currency($code, '£', 'foo');
     }
 
     /**
@@ -80,6 +80,26 @@ class CurrencyTest extends TestCase
             [Currency::USD(), 'USD', true],
             [Currency::NZD(), 'GBP', false],
         ];
+    }
+
+    /**
+     * Can get name.
+     *
+     * @return void
+     */
+    public function testCanGetName()
+    {
+        $this->assertSame(Currency::GBP()->getName(), 'Great British Pound');
+    }
+
+    /**
+     * Can get verbose string representation.
+     *
+     * @return void
+     */
+    public function testCanGetVerboseString()
+    {
+        $this->assertSame(Currency::GBP()->toStringVerbose(), 'GBP (Great British Pound £)');
     }
 
     /**
@@ -137,6 +157,6 @@ class CurrencyTest extends TestCase
      */
     public function testIsEuro()
     {
-        $this->assertTrue(Currency::Euro()->isEuro());
+        $this->assertTrue(Currency::EUR()->isEuro());
     }
 }
